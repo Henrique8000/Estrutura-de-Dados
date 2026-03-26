@@ -27,29 +27,45 @@ public class Program {
 				
 				if (!clientes.qIsEmpty()) {
 					
-					tempoDeEspera += clientes.dequeue();
-					totalClientesAtendidos += 1;
-					maxEspera = 0;
+					int entrada = clientes.dequeue();
+					int espera = minuto - entrada;
+					
+					tempoDeEspera += espera;
+					totalClientesAtendidos++;
+					
+					if (espera > maxEspera) {
+						maxEspera = espera;
+					}
 				}
 
-				int resultado = random.nextInt(2);
+				int resultado = random.nextInt(3);
 
-				if (resultado != 0) {
-					for (int k = 0; k < resultado; k++) {
-						clientes.enqueue(minuto);
-						maxEspera +=1;
-					}
+				if (resultado == 1) {
+					clientes.enqueue(minuto);
+				}
+				else if (resultado == 2) {
+					clientes.enqueue(minuto);
+					clientes.enqueue(minuto);
 				}
 
 			}
 			
 			System.out.println("Número total de clientes atendidos: " + totalClientesAtendidos);
-			System.out.println("Tempo médio de espera: " + (totalClientesAtendidos / tempoDeEspera));
+			
+			if (totalClientesAtendidos > 0) {
+				System.out.printf("Tempo médio de espera: %.1f%n", ((double) tempoDeEspera / totalClientesAtendidos));
+			}
+			else {
+				System.out.println("Tempo médio de espera: 0");
+			}
+			
 			System.out.println("Maior tempo de espera na fila: " + maxEspera);
 			
-		} catch (Exception e) {
+		} 
+		catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
-		} finally {
+		} 
+		finally {
 			sc.close();
 		}
 	}
