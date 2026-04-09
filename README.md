@@ -6,7 +6,7 @@ This repository contains my studies and practical implementations of **Data Stru
 
 The goal of this project is to strengthen my understanding of core data structures and algorithms through hands-on practice.
 
-Most exercises were developed as part of my **Computer Science coursework**, complemented by additional problems solved independently to deepen my knowledge and problem-solving skills.
+Most exercises were developed throughout my **Information Systems degree**, along with additional self-directed practice to strengthen my problem-solving and algorithmic skills.
 
 ## 🧩 Topics Covered
 
